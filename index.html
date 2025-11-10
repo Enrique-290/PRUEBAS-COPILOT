@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TPV Gimnasio</title>
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+  <header>
+    <h1>TPV Gimnasio</h1>
+    <nav>
+      <button onclick="mostrarSeccion('ventas')">Ventas</button>
+      <button onclick="mostrarSeccion('inventario')">Inventario</button>
+      <button onclick="mostrarSeccion('membresias')">Membresías</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="ventas" class="seccion">
+      <h2>Área de Ventas</h2>
+      <div id="productos"></div>
+      <div id="carrito"></div>
+      <label>Tipo de pago:
+        <select id="tipoPago">
+          <option>Efectivo</option>
+          <option>Transferencia</option>
+          <option>Tarjeta</option>
+          <option>Otro</option>
+        </select>
+      </label>
+      <button onclick="finalizarVenta()">Finalizar Venta</button>
+    </section>
+
+    <section id="inventario" class="seccion oculto">
+      <h2>Inventario</h2>
+      <form onsubmit="agregarProducto(event)">
+        <input type="text" placeholder="SKU" id="sku" required>
+        <input type="text" placeholder="Nombre" id="nombre" required>
+        <input type="text" placeholder="Tipo" id="tipo" required>
+        <input type="number" placeholder="Precio" id="precio" required>
+        <input type="number" placeholder="Costo" id="costo" required>
+        <input type="number" placeholder="Piezas" id="piezas" required>
+        <input type="number" placeholder="Mínimo" id="minimo" required>
+        <input type="file" id="imagen" accept="image/*" required>
+        <button type="submit">Agregar Producto</button>
+      </form>
+      <div id="listaInventario"></div>
+    </section>
+
+    <section id="membresias" class="seccion oculto">
+      <h2>Control de Membresías</h2>
+      <form onsubmit="agregarMembresia(event)">
+        <input type="text" placeholder="Nombre" id="nombreM" required>
+        <input type="date" id="inicioM" required>
+        <input type="date" id="finM" required>
+        <button type="submit">Registrar Membresía</button>
+      </form>
+      <div id="listaMembresias"></div>
+    </section>
+  </main>
+
+  <script src="./assets/script.js"></script>
+</body>
+</html>
